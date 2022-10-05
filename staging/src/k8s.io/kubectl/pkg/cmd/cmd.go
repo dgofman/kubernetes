@@ -53,6 +53,7 @@ import (
 	cmdexec "k8s.io/kubectl/pkg/cmd/exec"
 	"k8s.io/kubectl/pkg/cmd/explain"
 	"k8s.io/kubectl/pkg/cmd/expose"
+	"k8s.io/kubectl/pkg/cmd/format"
 	"k8s.io/kubectl/pkg/cmd/get"
 	"k8s.io/kubectl/pkg/cmd/label"
 	"k8s.io/kubectl/pkg/cmd/logs"
@@ -399,6 +400,7 @@ func NewKubectlCommand(o KubectlOptions) *cobra.Command {
 			Commands: []*cobra.Command{
 				diff.NewCmdDiff(f, o.IOStreams),
 				apply.NewCmdApply("kubectl", f, o.IOStreams),
+				format.NewCmdFormat("kubectl", f, o.IOStreams),
 				patch.NewCmdPatch(f, o.IOStreams),
 				replace.NewCmdReplace(f, o.IOStreams),
 				wait.NewCmdWait(f, o.IOStreams),
